@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projets | Ignace Bagre</title>
 <meta name="description" content="Suivi de la déforestation, dynamiques d'occupation du sol et ressources en eau : les projets de recherche appliquée d'Ignace Bagre.">
-<!-- Remplacer OG_URL par l'URL réelle une fois le site en ligne, et ajouter une image assets/og-cover.jpg (1200x630) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Projets | Ignace Bagre">
 <meta property="og:description" content="Suivi de la déforestation, dynamiques d'occupation du sol et ressources en eau : les projets de recherche appliquée d'Ignace Bagre.">
@@ -52,7 +51,6 @@ body{
   cursor:default;
 }
 
-/* ---------- custom cursor (desktop only) ---------- */
 .cursor-dot{
   position:fixed; top:0; left:0; z-index:999;
   width:10px; height:10px; border-radius:50%;
@@ -67,7 +65,6 @@ body{
 .cursor-dot.hovering{width:46px; height:46px; background:var(--ink);}
 @media (hover:none), (pointer:coarse){ .cursor-dot{display:none;} }
 
-/* ---------- faint graticule ---------- */
 .graticule{
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='270' viewBox='0 0 700 270'%3E%3Cpath d='M-20,50 C80,20 140,80 240,50 C340,20 400,80 480,50 C580,20 640,80 720,50' fill='none' stroke='%235FA8C4' stroke-width='1' opacity='0.4'/%3E%3Cpath d='M-20,140 C80,110 140,170 240,140 C340,110 400,170 480,140 C580,110 640,170 720,140' fill='none' stroke='%233E7B96' stroke-width='1' opacity='0.32'/%3E%3Cpath d='M-20,220 C80,190 140,250 240,220 C340,190 400,250 480,220 C580,190 640,250 720,220' fill='none' stroke='%23254A5C' stroke-width='1' opacity='0.26'/%3E%3C/svg%3E");
@@ -76,7 +73,6 @@ body{
   mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 35%, transparent 92%);
 }
 
-/* ---------- signature transfrontalière (rivière traversant une frontière) ---------- */
 .river-mark{display:flex; align-items:center; gap:14px;}
 .river-mark svg{flex-shrink:0;}
 .river-mark span{
@@ -86,11 +82,9 @@ body{
 
 a{color:inherit; text-decoration:none;}
 
-/* ---------- scroll reveal ---------- */
 .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.is-visible{opacity:1; transform:translateY(0);}
 
-/* ---------- header ---------- */
 header{
   position:fixed; top:0; left:0; right:0; z-index:50;
   display:flex; align-items:flex-start; justify-content:space-between;
@@ -106,7 +100,6 @@ header{
 
 main{position:relative; z-index:1;}
 
-/* ---------- hero (page d'accueil) ---------- */
 .hero{
   position:relative; z-index:1;
   min-height:100vh;
@@ -135,9 +128,6 @@ h1.title{
 .legend-bar .swatch{width:7px; height:7px; border-radius:50%;}
 .legend-labels{display:none;}
 
-/* ---------- table des matières (hub links) ---------- */
-/* Bloc compact aligné à gauche, empilé serré, sans lignes ni pleine
-   largeur — même emplacement/esprit qu'un menu type spatzek.studio. */
 .toc{
   display:flex; flex-direction:column;
   align-items:flex-start;
@@ -165,7 +155,6 @@ h1.title{
 }
 .toc-item .toc-desc, .toc-item .toc-arrow{display:none;}
 
-/* sélection de texte assortie à l'accent, clin d'œil au 3-couleurs de Spatzek */
 ::selection{background:var(--accent); color:#0A0A0A;}
 
 .hero-scroll{
@@ -174,7 +163,6 @@ h1.title{
   display:flex; align-items:center; gap:10px; text-transform:uppercase; letter-spacing:0.06em;
 }
 
-/* ---------- generic page hero (sub-pages) ---------- */
 .page-hero{max-width:1400px; margin:0 auto; padding:10rem 5vw 3rem;}
 .eyebrow{
   font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.12em;
@@ -190,10 +178,8 @@ h2.section-title{
 }
 .page-hero p.lead{color:var(--ink-muted); max-width:56ch; font-size:1.02rem;}
 
-/* ---------- generic content section ---------- */
 .content-section{max-width:1400px; margin:0 auto; padding:2rem 5vw 9rem;}
 
-/* ---------- projects ---------- */
 .projects-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
 .card{
   background:var(--bg); padding:2.4rem 2rem;
@@ -222,7 +208,6 @@ h2.section-title{
 }
 .soon-badge .eta{color:var(--ink-faint); opacity:0.7; text-transform:none; letter-spacing:0;}
 
-/* ---------- resources ---------- */
 .res-list{display:flex; flex-direction:column;}
 .res-item{
   display:grid; grid-template-columns:130px 1fr auto; align-items:center; gap:2rem;
@@ -237,7 +222,6 @@ h2.section-title{
   border:1px solid var(--line); padding:4px 10px; white-space:nowrap; text-transform:uppercase;
 }
 
-/* ---------- communauté / formulaire ---------- */
 .community-intro{display:grid; grid-template-columns:0.85fr 1.15fr; gap:5rem; align-items:start;}
 .community-intro p{color:var(--ink-muted); max-width:42ch; margin-bottom:1.2rem;}
 .community-note{
@@ -266,7 +250,6 @@ form.share-form{
 .form-status{font-family:var(--font-mono); font-size:0.72rem; color:var(--ink-muted); display:none;}
 .form-status.visible{display:block;}
 
-/* ---------- about ---------- */
 .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:5rem; align-items:start;}
 .about-grid p{color:var(--ink-muted); margin-bottom:1.2rem; max-width:50ch;}
 .skills-legend{display:flex; flex-direction:column; gap:0;}
@@ -276,7 +259,6 @@ form.share-form{
 .skill-row .name{font-family:var(--font-mono); font-size:0.82rem; min-width:9ch; text-transform:uppercase; letter-spacing:0.03em;}
 .skill-row .desc{color:var(--ink-faint); font-size:0.8rem;}
 
-/* ---------- contact page ---------- */
 .contact-block{max-width:1400px; margin:0 auto; padding:10rem 5vw 9rem;}
 .contact-block h2{
   font-family:var(--font-display); font-weight:600;
@@ -291,7 +273,6 @@ form.share-form{
 .contact-links a:last-child{border-bottom:1px solid var(--line);}
 .contact-links a:hover{color:var(--ink); padding-left:0.6rem;}
 
-/* ---------- project detail pages ---------- */
 .project-hero{max-width:1080px; margin:0 auto; padding:10rem 5vw 3rem;}
 h1.project-title{
   font-family:var(--font-display); font-weight:700;
@@ -331,7 +312,6 @@ figcaption{font-family:var(--font-mono); font-size:0.7rem; color:var(--ink-faint
 }
 .status-tag .dot{width:6px; height:6px; border-radius:50%; background:var(--sol-nu);}
 
-/* ---------- footer ---------- */
 footer.site-footer{
   position:relative; z-index:1; border-top:1px solid var(--line);
   padding:2.6rem 5vw; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.2rem;
@@ -379,15 +359,13 @@ footer.site-footer{
         <div class="coords-mini">Province du Sanguié · 30 669 ha</div>
       </a>
 
-      <!-- Éditer .eta ci-dessous avec une échéance réelle une fois connue -->
-      <div class="card disabled">
+      <a href="massili.html" class="card" style="display:flex;">
         <div class="tag"><span class="dot" style="background:var(--sol-nu)"></span>Occupation du sol</div>
         <h3>Massili — Dynamiques spatio-temporelles</h3>
-        <div class="stat">Indice de Pression Urbaine spatialisé</div>
+        <div class="stat">31,0 % de bâti en 2025 (+3,98 %/an depuis 2015)</div>
         <p>Mémoire de master : classification SVM, taux de changement (formule de Puyravaud), corrélations de Spearman et cartographie de la pression urbaine à l'échelle de la cellule (1 km²), 2000–2025.</p>
         <div class="coords-mini">Sous-bassin du Massili · Burkina Faso</div>
-        <div class="soon-badge">page à venir <span class="eta">· prévue fin juillet 2026</span></div>
-      </div>
+      </a>
 
       <div class="card disabled">
         <div class="tag"><span class="dot" style="background:var(--eau)"></span>Ressource en eau</div>
@@ -410,7 +388,6 @@ footer.site-footer{
 
 <script>
 
-  /* ---------- curseur personnalisé ---------- */
   const cursor = document.createElement('div');
   cursor.className = 'cursor-dot';
   document.body.appendChild(cursor);
@@ -432,7 +409,6 @@ footer.site-footer{
     el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
   });
 
-  /* ---------- révélation au scroll ---------- */
   const revealTargets = document.querySelectorAll(
     'section > *, .toc-item, .card, .step, figure, .stat-box, .res-item, .skill-row'
   );
@@ -447,7 +423,6 @@ footer.site-footer{
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
   revealTargets.forEach(el => observer.observe(el));
 
-  /* ---------- couleur d'accent au survol des liens du sommaire ---------- */
   const accentCycle = ['var(--eau)', 'var(--foret)', 'var(--savane-arboree)', 'var(--savane-arbustive)', 'var(--sol-nu)'];
   document.querySelectorAll('.toc-item').forEach((el, i) => {
     el.style.setProperty('--accent', accentCycle[i % accentCycle.length]);
