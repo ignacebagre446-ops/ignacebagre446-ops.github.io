@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Learning | Ignace BAGRE</title>
+<meta name="description" content="Réseaux de neurones convolutifs et transfer learning appliqués à la classification d'images satellites — CNN, U-Net, comparaison avec les méthodes classiques de machine learning.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a class="logo" href="index.html">IGNACE <b>BAGRE</b></a>
+    <nav class="primary">
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="projets.html">Projets</a>
+      <a href="competences.html">Compétences</a>
+      <a href="deep-learning.html" class="active">Deep Learning</a>
+      <a href="ressources.html">Ressources</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="wrap coord">CNN · U-Net · Transfer learning — classification d'images satellites</div>
+</header>
+
+<section class="hero" style="padding-top:56px;padding-bottom:20px;">
+  <div class="wrap" style="max-width:720px;">
+    <div class="status-tag"><span class="dot"></span>En cours</div>
+    <div class="eyebrow">Vision par ordinateur appliquée</div>
+    <h1 style="font-size:2.3rem;">Deep learning pour la classification d'images satellites</h1>
+    <p>Au-delà des méthodes classiques de machine learning (SVM, K-NN) utilisées dans mes projets, j'explore les réseaux de neurones convolutifs pour la cartographie de l'occupation du sol — avec un objectif de comparaison rigoureuse plutôt que de substitution.</p>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">94,8 %</div><div class="label">Précision test — CNN sur EuroSAT</div></div>
+      <div class="stat-box"><div class="num">8 canaux</div><div class="label">Bandes Sentinel-2 + indices spectraux</div></div>
+      <div class="stat-box"><div class="num">U-Net</div><div class="label">Segmentation sémantique, en développement</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block bordered">
+  <div class="wrap" style="max-width:720px;">
+    <div class="eyebrow">Approche</div>
+    <h2>Pourquoi le deep learning, et pourquoi comparer</h2>
+    <p>Mes projets d'occupation du sol (Massili, Tiogo) reposent sur des classificateurs classiques — SVM et K-NN — entraînés sur un nombre limité de régions d'intérêt. Ces méthodes sont robustes et interprétables, mais restent sensibles à la confusion spectrale entre classes proches (ex. bâti traditionnel / sol nu, savane arborée / savane arbustive).</p>
+    <p>L'objectif du volet deep learning n'est pas de remplacer ces méthodes mais de les mettre à l'épreuve : entraîner un modèle par transfert d'apprentissage, l'adapter aux mêmes zones d'étude et au même jeu de validation, puis comparer objectivement précision globale et indice Kappa entre les deux approches.</p>
+  </div>
+</section>
+
+<section class="block bordered">
+  <div class="wrap" style="max-width:720px;">
+    <div class="eyebrow">Étape 1 — Modèle de base</div>
+    <h2>CNN entraîné sur EuroSAT</h2>
+    <p>Un réseau de neurones convolutif a été entraîné sur EuroSAT, jeu de données de référence pour la classification de scènes Sentinel-2 (10 classes d'occupation du sol, 27 000 images). Ce modèle sert de point de départ pour le transfert d'apprentissage vers mes propres zones d'étude.</p>
+
+    <div class="methodo-steps">
+      <div class="step">
+        <div class="idx">01</div>
+        <div><h4>Jeu de données</h4><p>EuroSAT — imagerie Sentinel-2, 10 classes d'occupation du sol, découpage entraînement/validation/test.</p></div>
+      </div>
+      <div class="step">
+        <div class="idx">02</div>
+        <div><h4>Architecture</h4><p>Réseau de neurones convolutif (CNN) implémenté sous PyTorch.</p></div>
+      </div>
+      <div class="step">
+        <div class="idx">03</div>
+        <div><h4>Résultat</h4><p>94,8 % de précision sur le jeu de test — base validée pour l'étape de transfert vers les données de terrain.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block bordered">
+  <div class="wrap" style="max-width:720px;">
+    <div class="eyebrow">Étape 2 — En développement</div>
+    <h2>Transfert vers U-Net, 8 canaux</h2>
+    <p>L'étape suivante consiste à adapter ce modèle de base vers une architecture U-Net, capable de segmentation sémantique pixel par pixel plutôt que de classification de scène entière — indispensable pour produire une carte d'occupation du sol comparable aux classifications SVM et K-NN existantes.</p>
+
+    <div class="callout">
+      <p>Le modèle sera réentraîné sur 8 canaux (bandes Sentinel-2 B2, B3, B4, B8, B11 + indices NDVI, NDWI, BSI), puis évalué sur les mêmes points de validation indépendants que la classification K-NN du projet Tiogo — pour une comparaison directe, chiffrée en précision globale et indice Kappa.</p>
+    </div>
+
+    <table class="mini-table">
+      <tr><th>Projet lié</th><th>Méthode classique</th><th>Statut du volet deep learning</th></tr>
+      <tr><td>Forêt classée Tiogo</td><td class="num">K-NN (73,2 %, Kappa 0,664)</td><td class="num">U-Net en cours</td></tr>
+      <tr><td>Massili</td><td class="num">SVM (Kappa ≥ 0,90)</td><td class="num">à planifier</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="block bordered">
+  <div class="wrap">
+    <div class="eyebrow">Outils</div>
+    <h2>Pile technique</h2>
+    <div class="skills-grid">
+      <div class="skill"><h3>PyTorch</h3><p>Construction et entraînement des modèles CNN / U-Net</p></div>
+      <div class="skill"><h3>rasterio</h3><p>Lecture et préparation des rasters multi-bandes</p></div>
+      <div class="skill"><h3>scikit-learn</h3><p>Matrices de confusion, indice Kappa, comparaison des modèles</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap" style="max-width:720px;">
+    <div class="eyebrow">Suite</div>
+    <h2>Prochaines publications</h2>
+    <p>Les résultats du transfert vers U-Net et la comparaison chiffrée avec les classifications classiques seront publiés sur cette page et sur la page <a href="ressources.html">Ressources</a> au fur et à mesure de leur validation.</p>
+    <a class="btn ghost" href="tiogo.html">Voir le projet Tiogo →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Ignace Bagré</span>
+    <span>Ressources en eau transfrontalières · Afrique de l'Ouest</span>
+    <span>Ouagadougou, Burkina Faso</span>
+  </div>
+</footer>
+
+</body>
+</html>
